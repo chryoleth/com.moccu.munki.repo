@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>google-chrome-as</string>
+        <string>google-chrome</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>Tools/Browsers/%NAME%</string>
         <key>pkginfo</key>
