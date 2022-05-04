@@ -22,7 +22,7 @@ into Munki, adding a postinstall_script that installs the command-line tools.</s
             <key>description</key>
             <string>BBEdit is the leading professional HTML and text editor for the Mac. Specifically crafted in response to the needs of Web authors and software developers, this award-winning product provides a plethora of features for editing, searching, and manipulation of text. BBEdit transforms text with high performance.</string>
             <key>display_name</key>
-            <string>BBEdit</string>
+            <string>[MOCCU] BBEdit</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>postinstall_script</key>
