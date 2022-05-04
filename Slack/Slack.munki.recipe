@@ -29,9 +29,8 @@
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>postinstall_script</key>
-      <string>
-				#!/bin/bash
-				chown -R $(ls -1 /Users/ | grep -wv "administrator" | grep -wv "Shared" | grep -wv "admin" | grep -wv ".localized"):staff /Applications/Slack.app
+      <string>#!/bin/bash
+chown -R $(ls -1 /Users/ | grep -wv "administrator" | grep -wv "Shared" | grep -wv "admin" | grep -wv ".localized"):wheel /Applications/Slack.app
 			</string>
 			<key>unattended_install</key>
 			<true/>
