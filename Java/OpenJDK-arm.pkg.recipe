@@ -5,11 +5,11 @@
       <key>Description</key>
       <string>Downloads the current release version of OpenJDK 13 and builds a package.</string>
       <key>Identifier</key>
-      <string>com.moccu.OpenJDK.pkg</string>
+      <string>com.moccu.OpenJDK.arm.pkg</string>
       <key>Input</key>
       <dict>
          <key>NAME</key>
-         <string>OpenJDK</string>
+         <string>OpenJDK-arm</string>
          <key>VENDOR</key>
          <string>OpenJDK</string>
          <key>SOFTWARETITLE</key>
@@ -18,7 +18,7 @@
          <string>JDK</string>
       </dict>
       <key>ParentRecipe</key>
-      <string>com.moccu.OpenJDK.download</string>
+      <string>com.moccu.OpenJDK.arm.download</string>
       <key>MinimumVersion</key>
       <string>1.0.0</string>
       <key>Process</key>

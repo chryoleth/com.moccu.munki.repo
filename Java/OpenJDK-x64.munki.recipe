@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Identifier</key>
-    <string>com.moccu.OpenJDK.munki</string>
+    <string>com.moccu.OpenJDK.x64.munki</string>
     <key>Description</key>
     <string>Downloads the current release version of OpenJDK, builds a package and imports it to Munki.</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>openjdk</string>
+        <string>openjdk-x64</string>
         <key>SOFTWARETITLE</key>
         <string>Java</string>
         <key>SOFTWARETYPE</key>
@@ -31,7 +31,7 @@
             <key>developer</key>
             <string>%VENDOR%</string>
             <key>display_name</key>
-            <string>OpenJDK</string>
+            <string>OpenJDK (x64)</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
@@ -43,7 +43,7 @@
         </dict>
     </dict>
     <key>ParentRecipe</key>
-    <string>com.moccu.OpenJDK.pkg</string>
+    <string>com.moccu.OpenJDK.x64.pkg</string>
     <key>Process</key>
     <array>
         <dict>

@@ -5,11 +5,11 @@
     <key>Description</key>
     <string>Downloads the latest OpenJDK for macOS.</string>
     <key>Identifier</key>
-    <string>com.moccu.OpenJDK.download</string>
+    <string>com.moccu.OpenJDK.x64.download</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>OpenJDK</string>
+        <string>OpenJDK-x64</string>
         <key>MAJOR_VERSION</key>
         <string>18</string>
         <key>VENDOR</key>
@@ -21,7 +21,7 @@
         <key>SEARCH_URL</key>
         <string>https://jdk.java.net/%MAJOR_VERSION%/</string>
         <key>SEARCH_PATTERN</key>
-        <string>(?P&lt;url&gt;https://download.java.net/java/GA/jdk%MAJOR_VERSION%.*?/GPL/openjdk-%MAJOR_VERSION%.*?_osx-x64_bin\.tar\.gz)</string>
+        <string>(?P&lt;url&gt;https://download.java.net/java/GA/jdk%MAJOR_VERSION%.*?/GPL/openjdk-%MAJOR_VERSION%.*?_macos-x64_bin\.tar\.gz)</string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.0.0</string>
