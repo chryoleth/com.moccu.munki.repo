@@ -38,6 +38,17 @@
 
 # secure configurations
 /Applications/Tunnelblick.app/Contents/Resources/installer 16
+
+cd /tmp/
+curl "https://downloads.chryoleth.tech/moccu/tunnelblick.zip" -o "tunnelblick.zip"
+unzip tunnelblick.zip
+
+mv tunnelblick/* /Library/Application\ Support/Tunnelblick/Shared/
+chown -R root:wheel /Library/Application\ Support/Tunnelblick/Shared
+chmod -R 755 /Library/Application\ Support/Tunnelblick/Shared
+chmod -R 700 /Library/Application\ Support/Tunnelblick/Shared/moccu-hq.tblk/Contents/Resources/c*
+chmod -R 700 /Library/Application\ Support/Tunnelblick/Shared/moccu-hq-internet.tblk/Contents/Resources/c*
+rm -rf tunnelblick.zip __MACOSX tunnelblick
 			</string>
 			<key>unattended_install</key>
 			<true/>
