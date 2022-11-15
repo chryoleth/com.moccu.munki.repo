@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/autopkg/python
 #
 # Copyright 2015 Allister Banks and Tim Sutton,
 # based on MSOffice2011UpdateInfoProvider by Greg Neagle
@@ -17,15 +17,11 @@
 # limitations under the License.
 """See docstring for MSOfficeMacURLandUpdateInfoProvider class"""
 
+import plistlib
 import re
 
 from autopkglib import ProcessorError
 from autopkglib.URLGetter import URLGetter
-
-try:
-    from plistlib import readPlistFromString
-except ImportError:
-    from plistlib import readPlistFromBytes as readPlistFromString
 
 __all__ = ["MSOfficeMacURLandUpdateInfoProvider"]
 
@@ -102,6 +98,21 @@ PROD_DICT = {
         "path": "/Applications/Microsoft Defender ATP.app",
         "minimum_os": "10.12",
     },
+    "Edge": {
+        "id": "EDGE01",
+        "path": "/Applications/Microsoft Edge.app",
+        "minimum_os": "10.11",
+    },
+    "Teams": {
+        "id": "TEAM01",
+        "path": "/Applications/Microsoft Teams.app",
+        "minimum_os": "10.10",
+    },
+    "CompanyPortal": {
+        "id": "IMCP01",
+        "path": "/Applications/Company Portal.app",
+        "minimum_os": "10.15",
+    },
 }
 LOCALE_ID_INFO_URL = "https://msdn.microsoft.com/en-us/goglobal/bb964664.aspx"
 SUPPORTED_VERSIONS = ["latest", "latest-delta", "latest-standalone"]
@@ -112,6 +123,7 @@ CHANNELS = {
     "InsiderFast": "4B2D7701-0A4F-49C8-B4CB-0C2D4043F51F",
 }
 DEFAULT_CHANNEL = "Production"
+NO_TRIGGER_CONDITIONS = ["SkypeForBusiness", "Teams", "Edge", "CompanyPortal"]
 
 
 class MSOfficeMacURLandUpdateInfoProvider(URLGetter):
@@ -210,9 +222,9 @@ class MSOfficeMacURLandUpdateInfoProvider(URLGetter):
     def get_installs_items(self, item):
         """Attempts to parse the Triggers to create an installs item using
         only manifest data, making the assumption that CFBundleVersion and
-        CFBundleShortVersionString are equal. Skip SkypeForBusiness as its
-        xml does not contain a 'Trigger Condition'"""
-        if self.env["product"] != "SkypeForBusiness":
+        CFBundleShortVersionString are equal. Skip SkypeForBusiness, Teams,
+        and Edge as their xml does not contain a 'Trigger Condition'"""
+        if self.env["product"] not in NO_TRIGGER_CONDITIONS:
             self.sanity_check_expected_triggers(item)
         version = self.get_version(item)
         # Skipping CFBundleShortVersionString because it doesn't contain
@@ -269,7 +281,7 @@ class MSOfficeMacURLandUpdateInfoProvider(URLGetter):
         }
         data = self.download(base_url, headers)
 
-        metadata = readPlistFromString(data)
+        metadata = plistlib.loads(data)
         item = {}
         # Update feeds for a given 'channel' will have either combo or delta
         # pkg urls, with delta's additionally having a 'FullUpdaterLocation'
