@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>OpenJDK-x64</string>
         <key>MAJOR_VERSION</key>
-        <string>18</string>
+        <string>20</string>
         <key>VENDOR</key>
         <string>OpenJDK</string>
         <key>SOFTWARETITLE</key>
